@@ -1,33 +1,25 @@
 import React from 'react';
-import './App.css';  // Add this line if it's not already there
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import FeaturedArticle from './components/FeaturedArticle';
-import NextMatch from './components/NextMatch';
-import ArticleList from './components/ArticleList';
+import HomePage from './HomePage/HomePage';
+import ArticlePage from './ArticlePage/ArticlePage';
 import Footer from './components/Footer';
-import { useHomeData } from './hooks/useHomeData';
+import './App.css';
 
 const App: React.FC = () => {
-  const { data, loading, error } = useHomeData();
-
-  console.log(data);
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
   return (
-    <div className="App">
-      <Header />
-      <main>
-        {data && (
-          <>
-            <FeaturedArticle article={data.articles[0]} />
-            <NextMatch match={data.nextMatch} />
-            <ArticleList articles={data.articles.slice(1)} />
-          </>
-        )}
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/article/:id" element={<ArticlePage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 

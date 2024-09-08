@@ -1,0 +1,74 @@
+.article-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-hero {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  margin: -20px -20px 20px -20px;
+}
+
+.article-hero h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.article-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.article-meta {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .article-hero {
+    height: 250px;
+  }
+
+  .article-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+.linked-articles {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eaeaea;
+}
+
+.linked-articles h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.linked-articles ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.linked-articles li {
+  margin-bottom: 0.5rem;
+}
+
+.linked-articles a {
+  color: #8B0000;
+  text-decoration: none;
+}
+
+.linked-articles a:hover {
+  text-decoration: underline;
+}
