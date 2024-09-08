@@ -212,3 +212,54 @@ footer nav ul li a {
   background-color: #cccccc;
   cursor: not-allowed;
 }
+
+.loading-indicator {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #8B0000;
+}
+
+/* You can add a spinning animation for the loading indicator if desired */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-indicator::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: 2px solid #8B0000;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #8B0000;
+  color: #FFD700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #660000;
+}
+
+.filter-buttons button.active {
+  background-color: #FFD700;
+  color: #8B0000;
+}

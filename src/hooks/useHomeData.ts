@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { HomeData, Article, NextMatch } from '../types';
 
 interface UseHomeDataResult {
@@ -11,7 +11,7 @@ interface UseHomeDataResult {
   fetchNextPage: () => void;
 }
 
-export const useHomeData = (): UseHomeDataResult => {
+export const useHomeData = (competitionTypeId: number = 0): UseHomeDataResult => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [nextMatch, setNextMatch] = useState<NextMatch | null>(null);
   const [totalPages, setTotalPages] = useState<number>(1);
@@ -19,10 +19,11 @@ export const useHomeData = (): UseHomeDataResult => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = async (page: number) => {
+  const fetchData = useCallback(async (page: number) => {
     setLoading(true);
     try {
-      const response = await fetch(`https://cluster.tarajiplus.com/api/articles?page=${page}`, {
+      const url = `https://cluster.tarajiplus.com/api/articles?page=${page}${competitionTypeId ? `&competition_type_id=${competitionTypeId}` : ''}`;
+      const response = await fetch(url, {
         headers: {
           'Host': 'cluster.tarajiplus.com',
           'source': 'app_taraji',
@@ -43,24 +44,26 @@ export const useHomeData = (): UseHomeDataResult => {
         setTotalPages(data.totalPages);
         setCurrentPage(page);
       } else {
-        setError(result.error_message);
+        setError(result.error_message || 'An error occurred while fetching data');
       }
     } catch (err) {
       setError('An error occurred while fetching data');
     } finally {
       setLoading(false);
     }
-  };
+  }, [competitionTypeId]);
 
   useEffect(() => {
+    setArticles([]);
+    setCurrentPage(1);
     fetchData(1);
-  }, []);
+  }, [competitionTypeId, fetchData]);
 
-  const fetchNextPage = () => {
+  const fetchNextPage = useCallback(() => {
     if (currentPage < totalPages) {
       fetchData(currentPage + 1);
     }
-  };
+  }, [currentPage, totalPages, fetchData]);
 
   return { articles, nextMatch, totalPages, currentPage, loading, error, fetchNextPage };
 };
