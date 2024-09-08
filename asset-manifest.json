@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.765b2326.css",
-    "main.js": "/static/js/main.10a4f6c6.js",
-    "static/js/453.645ef1c0.chunk.js": "/static/js/453.645ef1c0.chunk.js",
-    "static/media/taraji-plus.png": "/static/media/taraji-plus.44ba6ca9af05b60132bc.png",
-    "index.html": "/index.html",
-    "main.765b2326.css.map": "/static/css/main.765b2326.css.map",
-    "main.10a4f6c6.js.map": "/static/js/main.10a4f6c6.js.map",
-    "453.645ef1c0.chunk.js.map": "/static/js/453.645ef1c0.chunk.js.map"
+    "main.css": "/taraji-plus/static/css/main.765b2326.css",
+    "main.js": "/taraji-plus/static/js/main.a59a55e3.js",
+    "static/js/453.645ef1c0.chunk.js": "/taraji-plus/static/js/453.645ef1c0.chunk.js",
+    "static/media/taraji-plus.png": "/taraji-plus/static/media/taraji-plus.44ba6ca9af05b60132bc.png",
+    "index.html": "/taraji-plus/index.html",
+    "main.765b2326.css.map": "/taraji-plus/static/css/main.765b2326.css.map",
+    "main.a59a55e3.js.map": "/taraji-plus/static/js/main.a59a55e3.js.map",
+    "453.645ef1c0.chunk.js.map": "/taraji-plus/static/js/453.645ef1c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.765b2326.css",
-    "static/js/main.10a4f6c6.js"
+    "static/js/main.a59a55e3.js"
   ]
 }
