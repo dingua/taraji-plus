@@ -41,21 +41,38 @@ header {
   font-weight: bold;
 }
 
-header nav ul {
-  list-style-type: none;
+.main-nav {
   display: flex;
-  margin: 0;
-  padding: 0;
+  gap: 20px;
 }
 
-header nav ul li {
-  margin-left: 20px;
-}
-
-header nav ul li a {
+.main-nav a {
   color: #FFD700; /* Gold color for nav links */
   text-decoration: none;
   font-size: 18px;
+}
+
+.main-nav a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #FFD700;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-buttons button {
+  background-color: #FFD700;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.filter-buttons button.active {
+  font-weight: bold;
+  border: 2px solid #8B0000;
 }
 
 .featured-article {
