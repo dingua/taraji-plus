@@ -18,10 +18,20 @@ header {
 
 .header-content {
   display: flex;
+  flex-direction: column;
+}
+
+.top-row {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 10px;
+  background-color: #8B0000; /* Dark red background */
+}
+
+.bottom-row {
+  padding: 10px;
+  background-color: #8B0000; /* Dark red background */
 }
 
 .logo-container {
@@ -41,13 +51,20 @@ header {
   font-weight: bold;
 }
 
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .main-nav {
   display: flex;
   gap: 20px;
 }
 
 .main-nav a {
-  color: #FFD700; /* Gold color for nav links */
+  color: white;
+  margin-left: 20px;
   text-decoration: none;
   font-size: 18px;
 }
@@ -59,20 +76,22 @@ header {
 
 .filter-buttons {
   display: flex;
-  gap: 10px;
+  justify-content: center;
 }
 
 .filter-buttons button {
-  background-color: #FFD700;
-  border: none;
+  margin: 0 10px;
   padding: 5px 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
   cursor: pointer;
   font-size: 16px;
 }
 
 .filter-buttons button.active {
-  font-weight: bold;
-  border: 2px solid #8B0000;
+  background-color: #FFD700; /* Gold color for active button */
+  color: #8B0000;
 }
 
 .featured-article {
@@ -262,21 +281,16 @@ footer nav ul li a {
 }
 
 .filter-buttons button {
-  margin: 0 5px;
-  padding: 10px 15px;
-  background-color: #8B0000;
-  color: #FFD700;
+  margin: 0 10px;
+  padding: 5px 10px;
+  background-color: transparent;
   border: none;
-  border-radius: 5px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter-buttons button:hover {
-  background-color: #660000;
+  font-size: 16px;
 }
 
 .filter-buttons button.active {
-  background-color: #FFD700;
+  background-color: #FFD700; /* Gold color for active button */
   color: #8B0000;
 }
