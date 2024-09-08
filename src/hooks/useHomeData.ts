@@ -1,15 +1,29 @@
 import { useState, useEffect } from 'react';
-import { HomeData } from '../types';
+import { HomeData, Article, NextMatch } from '../types';
 
-export const useHomeData = () => {
-  const [data, setData] = useState<HomeData | null>(null);
+interface UseHomeDataResult {
+  articles: Article[];
+  nextMatch: NextMatch | null;
+  totalPages: number;
+  currentPage: number;
+  loading: boolean;
+  error: string | null;
+  fetchNextPage: () => void;
+}
+
+export const useHomeData = (): UseHomeDataResult => {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [nextMatch, setNextMatch] = useState<NextMatch | null>(null);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const headers = new Headers({
+  const fetchData = async (page: number) => {
+    setLoading(true);
+    try {
+      const response = await fetch(`https://cluster.tarajiplus.com/api/articles?page=${page}`, {
+        headers: {
           'Host': 'cluster.tarajiplus.com',
           'source': 'app_taraji',
           'lang': 'fr',
@@ -19,28 +33,34 @@ export const useHomeData = () => {
           'Authorization': 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9jbHVzdGVyLnRhcmFqaXBsdXMuY29tXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5Nzc0OTMyLCJuYmYiOjE2NTk3NzQ5MzIsImp0aSI6InFjb1pnVTZmWTdpNEtIMHQiLCJzdWIiOjQ0NjA3MywicHJ2IjoiMWQwYTAyMGFjZjVjNGI2YzQ5Nzk4OWRmMWFiZjBmYmQ0ZThjOGQ2MyJ9.sYJUuxNnfUgEDx14ztPiJfWwJ0tinTTp3q5rBwBmQsI',
           'Accept-Encoding': 'br;q=1.0, gzip;q=0.9, deflate;q=0.8',
           'Accept-Language': 'en-CA;q=1.0, ar-CA;q=0.9, fr-CA;q=0.8, es-CA;q=0.7'
-        });
-
-        const response = await fetch('https://cluster.tarajiplus.com/api/articles?page=1', {
-          method: 'GET',
-          headers: headers
-        });
-
-        const result = await response.json();
-        if (result.success) {
-          setData(result.data);
-        } else {
-          setError(result.error_message);
         }
-      } catch (err) {
-        setError('An error occurred while fetching data');
-      } finally {
-        setLoading(false);
+      });
+      const result = await response.json();
+      if (result.success) {
+        const data: HomeData = result.data;
+        setArticles(prevArticles => page === 1 ? data.articles : [...prevArticles, ...data.articles]);
+        setNextMatch(data.nextMatch);
+        setTotalPages(data.totalPages);
+        setCurrentPage(page);
+      } else {
+        setError(result.error_message);
       }
-    };
+    } catch (err) {
+      setError('An error occurred while fetching data');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchData(1);
   }, []);
 
-  return { data, loading, error };
+  const fetchNextPage = () => {
+    if (currentPage < totalPages) {
+      fetchData(currentPage + 1);
+    }
+  };
+
+  return { articles, nextMatch, totalPages, currentPage, loading, error, fetchNextPage };
 };
