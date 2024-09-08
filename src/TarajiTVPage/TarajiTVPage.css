@@ -1,0 +1,38 @@
+.taraji-tv-page {
+  padding: 20px;
+}
+
+.category {
+  margin-bottom: 20px;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.video {
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.video img {
+  width: 100%;
+  height: auto;
+}
+
+.video h3 {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.video a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #8B0000;
+  color: #FFD700;
+  text-decoration: none;
+  border-radius: 5px;
+}
