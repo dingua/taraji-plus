@@ -44,5 +44,8 @@
             "last 1 safari version"
         ]
     },
-    "homepage": "https://dingua.github.io/taraji-plus"
+    "homepage": "https://dingua.github.io/taraji-plus",
+    "devDependencies": {
+        "gh-pages": "^6.1.1"
+    }
 }
