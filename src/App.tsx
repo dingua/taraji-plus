@@ -20,10 +20,11 @@ const App: React.FC = () => {
         <Header onFilterChange={handleFilterChange} currentFilter={competitionTypeId} />
         <main>
             <Routes>
-              <Route path="/" element={<Navigate to="/articles" replace />} />
+              <Route path="/" element={<HomePage competitionTypeId={competitionTypeId} />} />
               <Route path="/articles" element={<HomePage competitionTypeId={competitionTypeId} />} />
               <Route path="/article/:id" element={<ArticlePage />} />
               <Route path="/taraji-tv" element={<TarajiTVPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </main>
         <Footer />
