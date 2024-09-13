@@ -10,21 +10,23 @@ const TarajiTVPage: React.FC = () => {
 
   return (
     <div className="taraji-tv-page">
-      <h1>Taraji TV</h1>
-      {data?.categories.map(category => (
-        <div key={category.category_id} className="category">
-          <h2>{category.category_label}</h2>
-          <div className="videos">
-            {category.videos.map(video => (
-              <div key={video.video_id} className="video">
-                <img src={video.thumb} alt={video.video_title} />
-                <h3>{video.video_title}</h3>
-                <a href={video.video_link} target="_blank" rel="noopener noreferrer">Watch Now</a>
-              </div>
-            ))}
+      <div className="taraji-tv-content">
+        <h1>Taraji TV</h1>
+        {data?.categories.map(category => (
+          <div key={category.category_id} className="category">
+            <h2>{category.category_label}</h2>
+            <div className="videos">
+              {category.videos.map(video => (
+                <div key={video.video_id} className="video">
+                  <img src={video.thumb} alt={video.video_title} />
+                  <h3>{video.video_title}</h3>
+                  <a href={video.video_link} target="_blank" rel="noopener noreferrer">Watch Now</a>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

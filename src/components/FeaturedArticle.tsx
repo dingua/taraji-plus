@@ -10,9 +10,13 @@ interface Props {
 const FeaturedArticle: React.FC<Props> = ({ article }) => (
   <section className="featured-article">
     <Link to={`/article/${article.article_id}`} className="link-unstyled">
-    <img src={article.article_image_path} alt={article.article_title} />
-    <h2>{article.article_title}</h2>
-    <p>{article.category_label}</p>
+      <div className="featured-image">
+        <img src={article.article_image_path} alt={article.article_title} />
+      </div>
+      <div className="featured-content">
+        <h2>{article.article_title}</h2>
+        <p>{article.category_label}</p>
+      </div>
     </Link>
   </section>
 );

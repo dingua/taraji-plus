@@ -27,7 +27,7 @@ const HomePage: React.FC<HomePageProps> = ({ competitionTypeId }) => {
 
   return (
     <div className="home-page">
-      <main>
+      <div className="home-content">
         {articles.length > 0 && (
           <>
             <FeaturedArticle article={articles[0]} />
@@ -39,7 +39,7 @@ const HomePage: React.FC<HomePageProps> = ({ competitionTypeId }) => {
           </>
         )}
         {loading && <div className="loading-indicator">Loading...</div>}
-      </main>
+      </div>
     </div>
   );
 };
