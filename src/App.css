@@ -294,3 +294,8 @@ footer nav ul li a {
   background-color: #FFD700; /* Gold color for active button */
   color: #8B0000;
 }
+
+.link-unstyled {
+  color: inherit;
+  text-decoration: none;
+}
