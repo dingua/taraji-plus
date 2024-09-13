@@ -1,16 +1,14 @@
 {
   "files": {
-    "main.css": "/taraji-plus/static/css/main.765b2326.css",
-    "main.js": "/taraji-plus/static/js/main.a59a55e3.js",
-    "static/js/453.645ef1c0.chunk.js": "/taraji-plus/static/js/453.645ef1c0.chunk.js",
+    "main.css": "/taraji-plus/static/css/main.58104df1.css",
+    "main.js": "/taraji-plus/static/js/main.98162bc2.js",
     "static/media/taraji-plus.png": "/taraji-plus/static/media/taraji-plus.44ba6ca9af05b60132bc.png",
     "index.html": "/taraji-plus/index.html",
-    "main.765b2326.css.map": "/taraji-plus/static/css/main.765b2326.css.map",
-    "main.a59a55e3.js.map": "/taraji-plus/static/js/main.a59a55e3.js.map",
-    "453.645ef1c0.chunk.js.map": "/taraji-plus/static/js/453.645ef1c0.chunk.js.map"
+    "main.58104df1.css.map": "/taraji-plus/static/css/main.58104df1.css.map",
+    "main.98162bc2.js.map": "/taraji-plus/static/js/main.98162bc2.js.map"
   },
   "entrypoints": [
-    "static/css/main.765b2326.css",
-    "static/js/main.a59a55e3.js"
+    "static/css/main.58104df1.css",
+    "static/js/main.98162bc2.js"
   ]
 }
