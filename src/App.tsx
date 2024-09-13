@@ -29,7 +29,8 @@ const App: React.FC = () => {
             </Routes>
           ) : (
             <Routes>
-              <Route path="/" element={<HomePage competitionTypeId={competitionTypeId} />} />
+              <Route path="/" element={<Navigate to="/articles" replace />} />
+              <Route path="/articles" element={<HomePage competitionTypeId={competitionTypeId} />} />
               <Route path="/article/:id" element={<ArticlePage />} />
               <Route path="/taraji-tv" element={<TarajiTVPage />} />
             </Routes>
